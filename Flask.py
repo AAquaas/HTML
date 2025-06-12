@@ -21,5 +21,21 @@ def goodbye():
    message = "<h2>This is the second page!</h2>"
    return message
 
+@app.route('/thanks')
+def thanks():
+        person = "Bob"
+        action = "reading"
+        end = "Thanks"
+        writer = "Ryan"
+        return render_template("tynote.html", name=person, verb=action, gift="book", noun="person", closing_word=end, author=writer)
+
+
+@app.route('/costa_home')
+
+def costa_home():
+    return render_template("costa_home.html")
+
 if __name__ == '__main__':
     app.run()
+
+
