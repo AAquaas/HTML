@@ -32,8 +32,13 @@ def thanks():
 
 @app.route('/coffee.co/home')
 
-def costa_home():
-    return render_template("costa_home.html")
+def home_page():
+    return render_template("coffeeco_home.html")
+
+@app.route('/coffee.co/order')
+
+def order_page():
+    return render_template("coffeeco_order.html")
 
 if __name__ == '__main__':
     app.run()
