@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 import random
 
 app = Flask(__name__)
@@ -31,34 +31,37 @@ app.config['DEBUG'] = True
 
 
 @app.route('/coffee.co/home')
-
 def home_page():
     return render_template("coffeeco_home.html")
 
-@app.route('/coffee.co/order')
-
+@app.route('/coffee.co/order', methods=('GET', 'POST'))
 def order_page():
+    if request.method == 'POST':
+        drink = request.form['drinks']
+        milk = request.form['milk']
+        size = request.form['size']
+        ice = request.form['iced']
+
+        return render_template("coffeeco_result.html", drink=drink, milk=milk, size=size, ice=ice)
+
     return render_template("coffeeco_order.html")
 
-@app.route('/coffee.co/menu')
 
+@app.route('/coffee.co/menu')
 def menu_page():
     return render_template("coffeeco_menu.html")
 
 @app.route('/coffee.co/account')
-
 def account_page():
     return render_template("coffeeco_account.html")
 
 @app.route('/coffee.co/rewards')
-
 def rewards_page():
-    return render_template("coffeeco_account.html")
+    return render_template("coffeeco_rewards.html")
 
 @app.route('/coffee.co/locations')
-
 def locations_page():
-    return render_template("coffeeco_account.html")
+    return render_template("coffeeco_locations.html")
 
 if __name__ == '__main__':
     app.run()
