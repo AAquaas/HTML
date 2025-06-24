@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width">
-      <title>Coffee.co - Rewards</title>
-       <link rel="icon" href={{url_for('static', filename='images/coffeeco_logo.png')}} type="image/x-icon">
+{%extends "base.html" %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css')}}">
-
-   </head>
-   <body>
-   <div class="container">
-   <img  class="item" src="{{url_for('static', filename='images/coffeeco_logo.png')}}">
-   </div>
-<nav class="menu">
-  <ul>
-    <li><a href="home">Home</a></li>
-    <li><a href="menu">Menu</a></li>
-    <li><a href="rewards">Rewards</a></li>
-     <li><a href="locations">Locations</a></li>
-      <li><a href="account">Account</a></li>
-      <li><a href="order">Order</a></li>
-
-  </ul>
-</nav>
-   </body>
-</html>
+{% block content %}
+  <p>Rewards page content</p>
+{% endblock %}
